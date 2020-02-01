@@ -5,7 +5,7 @@ function handleCookies(req, res) {
     if (cookie === undefined) {
         cookie = Player.generateId();
         Player.createPlayer(cookie);
-        res.cookie('id', cookie, { maxAge: 86400000});
+        res.cookie('id', cookie, { maxAge: 31556952000});
     };
     if (!Player.playerExists(cookie)) {
         Player.createPlayer(cookie);
@@ -30,6 +30,7 @@ module.exports = {
     },
 
     intialize(req, res) {
+        Player.setup();
         const id = handleCookies(req, res);
         const playerPoints = Player.getPoints(id);
         const remainingCLicks = Player.nextWin();

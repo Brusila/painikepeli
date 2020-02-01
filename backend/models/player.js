@@ -3,6 +3,13 @@ let players = []
 let totalClicks = 0;
 
 module.exports = {
+    setup() {
+        const data = fs.readFileSync('players.json', 'utf8');
+        if (data) {
+            players = JSON.parse(data);
+        }
+    },
+
     generateId() {
         function generate() {
             let S4 = function() {
@@ -29,7 +36,10 @@ module.exports = {
             "points": 20
         };
         players.push(player);
-        return;
+        let json = JSON.stringify(players);
+        fs.writeFile('players.json', json, function(err) {
+            if (err) throw err;
+        });
     },
 
     editPoints(id) {
@@ -48,10 +58,13 @@ module.exports = {
                     players[index].points += 5;
                     pointsWon = 5;
                 }
+                let json = JSON.stringify(players);
+                fs.writeFile('players.json', json, function(err) {
+                    if (err) throw err;
+                });
                 return [players[index].points, pointsWon];
             }
         }
-        return 0;
     },
 
     nextWin() {
