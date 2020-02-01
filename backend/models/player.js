@@ -30,9 +30,10 @@ module.exports = {
         return false;
     },
 
-    createPlayer(id) {
+    createPlayer(id, name) {
         const player  = {
             "id": id,
+            "name": name,
             "points": 20
         };
         players.push(player);

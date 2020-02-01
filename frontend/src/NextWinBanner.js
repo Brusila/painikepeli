@@ -7,7 +7,7 @@ class NextWinBanner extends React.Component {
     }
     render() {
         if (this.props.points === 0) {
-            return (null)
+            return (null);
         } else {
             return (
                 <div>
