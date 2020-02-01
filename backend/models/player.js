@@ -4,7 +4,7 @@ let totalClicks = 0;
 
 module.exports = {
     setup() {
-        const data = fs.readFileSync('players.json', 'utf8');
+        const data = fs.readFileSync('./models/players.json', 'utf8');
         if (data) {
             players = JSON.parse(data);
         }
@@ -38,7 +38,7 @@ module.exports = {
         };
         players.push(player);
         let json = JSON.stringify(players);
-        fs.writeFile('players.json', json, function(err) {
+        fs.writeFile('./models/players.json', json, function(err) {
             if (err) throw err;
         });
     },
@@ -60,7 +60,7 @@ module.exports = {
                     pointsWon = 5;
                 }
                 let json = JSON.stringify(players);
-                fs.writeFile('players.json', json, function(err) {
+                fs.writeFile('./models/players.json', json, function(err) {
                     if (err) throw err;
                 });
                 return [players[index].points, pointsWon];
@@ -95,6 +95,10 @@ module.exports = {
         for (index in players) {
             if (players[index].id === id) {
                 players[index].points = 20;
+                let json = JSON.stringify(players);
+                fs.writeFile('./models/players.json', json, function(err) {
+                    if (err) throw err;
+                });
             }
         }
     }
