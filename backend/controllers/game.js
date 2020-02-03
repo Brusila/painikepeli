@@ -19,7 +19,8 @@ module.exports = {
         const id = handleCookies(req, res);
         const pointArray = Player.editPoints(id);
         const remainingCLicks = Player.nextWin();
-        res.end(JSON.stringify({points: pointArray[0], clicksToWin: remainingCLicks, pointsWon: pointArray[1]}));
+        const highscores = Player.getHighscores();
+        res.end(JSON.stringify({points: pointArray[0], clicksToWin: remainingCLicks, pointsWon: pointArray[1], highscoreArray: highscores}));
     },
 
     startOver(req, res) {
@@ -27,14 +28,16 @@ module.exports = {
         Player.resetPoints(id);
         const playerPoints = Player.getPoints(id);
         const remainingCLicks = Player.nextWin();
-        res.end(JSON.stringify({points: playerPoints, clicksToWin: remainingCLicks}));
+        const highscores = Player.getHighscores();
+        res.end(JSON.stringify({points: playerPoints, clicksToWin: remainingCLicks, highscoreArray: highscores}));
     },
 
     start(req, res) {
         const id = handleCookies(req, res);
         const playerPoints = Player.getPoints(id);
         const remainingClicks = Player.nextWin();
-        res.end(JSON.stringify({points: playerPoints, clicksToWin: remainingClicks}));
+        const highscores = Player.getHighscores();
+        res.end(JSON.stringify({points: playerPoints, clicksToWin: remainingClicks, highscoreArray: highscores}));
     },
 
     load(req, res) {
@@ -45,7 +48,8 @@ module.exports = {
         } else {
             const playerPoints = Player.getPoints(cookie);
             const remainingClicks = Player.nextWin();
-            res.end(JSON.stringify({playerFound: 'true', points: playerPoints, clicksToWin: remainingClicks}));
+            const highscores = Player.getHighscores();
+            res.end(JSON.stringify({playerFound: 'true', points: playerPoints, clicksToWin: remainingClicks, highscoreArray: highscores}));
         }
     }
 };

@@ -22,8 +22,8 @@ module.exports = {
     },
 
     playerExists(idToFind) {
-        for (index in players) {
-            if (players[index].id === idToFind) {
+        for (i in players) {
+            if (players[i].id === idToFind) {
                 return true;
             }
         }
@@ -46,24 +46,24 @@ module.exports = {
     editPoints(id) {
         totalClicks += 1;
         let pointsWon = 0;
-        for (index in players) {
-            if (players[index].id === id) {
-                players[index].points -= 1;
+        for (i in players) {
+            if (players[i].id === id) {
+                players[i].points -= 1;
                 if (totalClicks % 500 === 0) {
-                    players[index].points += 250;
+                    players[i].points += 250;
                     pointsWon = 250;
                 } else if (totalClicks % 100 === 0) {
-                    players[index].points += 40;
+                    players[i].points += 40;
                     pointsWon = 40;
                 } else if (totalClicks % 10 === 0) {
-                    players[index].points += 5;
+                    players[i].points += 5;
                     pointsWon = 5;
                 }
                 let json = JSON.stringify(players);
                 fs.writeFile('./models/players.json', json, function(err) {
                     if (err) throw err;
                 });
-                return [players[index].points, pointsWon];
+                return [players[i].points, pointsWon];
             }
         }
     },
@@ -83,23 +83,41 @@ module.exports = {
     },
 
     getPoints(id) {
-        for (index in players) {
-            if (players[index].id === id) {
-                return players[index].points;
+        for (i in players) {
+            if (players[i].id === id) {
+                return players[i].points;
             }
         }
         return 0;
     },
 
     resetPoints(id) {
-        for (index in players) {
-            if (players[index].id === id) {
-                players[index].points = 20;
+        for (i in players) {
+            if (players[i].id === id) {
+                players[i].points = 20;
                 let json = JSON.stringify(players);
                 fs.writeFile('./models/players.json', json, function(err) {
                     if (err) throw err;
                 });
             }
         }
+    },
+
+    getHighscores() {
+        players.sort(function(a, b) {
+            return a.points <= b.points;
+        });
+        highscoreArray = [];
+        for (i = 0; i < 5; i++) {
+            if (i === players.length) {
+                break;
+            }
+            let parsedPlayer = {
+                "name": players[i].name,
+                "points": players[i].points
+            };
+            highscoreArray.push(parsedPlayer);
+        }
+        return highscoreArray;
     }
 }

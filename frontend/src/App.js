@@ -5,6 +5,7 @@ import StartOverButton from './StartOverButton'
 import WinBanner from './WinBanner'
 import NextWinBanner from './NextWinBanner'
 import Welcome from './Welcome'
+import Scoreboard from './Scoreboard'
 import './App.css'
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
       clicksToWin: 0,
       pointsWon: 0,
       name: '',
-      playerFound: 'false'};
+      playerFound: 'false',
+      highscores: [{}]};
     this.play = this.play.bind(this);
     this.startOver = this.startOver.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +27,7 @@ class App extends React.Component {
       credentials: 'include',
     })
     .then(res => res.json())
-    .then(res => this.setState({playerFound: res.playerFound, points: res.points, clicksToWin: res.clicksToWin}))
+    .then(res => this.setState({playerFound: res.playerFound, points: res.points, clicksToWin: res.clicksToWin, highscores: res.highscoreArray}))
   }
 
   play() {
@@ -41,7 +43,8 @@ class App extends React.Component {
     .then(res => this.setState({
       points: res.points,
       clicksToWin: res.clicksToWin,
-      pointsWon: res.pointsWon
+      pointsWon: res.pointsWon,
+      highscores: res.highscoreArray
     }))
   }
 
@@ -55,7 +58,7 @@ class App extends React.Component {
       body: JSON.stringify({totalClicks: this.state.counter + 1})
     })
     .then(res => res.json())
-    .then(res => this.setState({points: res.points, clicksToWin: res.clicksToWin}))
+    .then(res => this.setState({points: res.points, clicksToWin: res.clicksToWin, highscores: res.highscoreArray}))
   }
 
   handleSubmit(name) {
@@ -69,7 +72,7 @@ class App extends React.Component {
       body: JSON.stringify({name: name})
     })
     .then(res => res.json())
-    .then(res => this.setState({points: res.points, clicksToWin: res.clicksToWin}))
+    .then(res => this.setState({points: res.points, clicksToWin: res.clicksToWin, highscores: res.highscoreArray}))
   }
 
   render() {
@@ -96,10 +99,11 @@ class App extends React.Component {
             <NextWinBanner clicksToWin = {this.state.clicksToWin} points = {this.state.points} />
           </div>
           <PointBalance points = {this.state.points} />
+          <Scoreboard highscores = {this.state.highscores}/>
         </main>
       );
     }
-
+    
     return (
       <div className='wrapper'>
         <header className='header'>
