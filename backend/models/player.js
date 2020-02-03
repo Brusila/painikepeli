@@ -2,6 +2,14 @@ const fs = require('fs');
 let players = []
 let totalClicks = 0;
 
+function updateSaveFile() {
+    let json = JSON.stringify(players);
+    fs.writeFile('./models/players.json', json, function(err) {
+        if (err) throw err;
+    });
+}
+setInterval(updateSaveFile, 30000);
+
 module.exports = {
     setup() {
         const data = fs.readFileSync('./models/players.json', 'utf8');
@@ -37,10 +45,6 @@ module.exports = {
             "points": 20
         };
         players.push(player);
-        let json = JSON.stringify(players);
-        fs.writeFile('./models/players.json', json, function(err) {
-            if (err) throw err;
-        });
     },
 
     editPoints(id) {
@@ -59,10 +63,6 @@ module.exports = {
                     players[i].points += 5;
                     pointsWon = 5;
                 }
-                let json = JSON.stringify(players);
-                fs.writeFile('./models/players.json', json, function(err) {
-                    if (err) throw err;
-                });
                 return [players[i].points, pointsWon];
             }
         }
@@ -95,10 +95,6 @@ module.exports = {
         for (i in players) {
             if (players[i].id === id) {
                 players[i].points = 20;
-                let json = JSON.stringify(players);
-                fs.writeFile('./models/players.json', json, function(err) {
-                    if (err) throw err;
-                });
             }
         }
     },
