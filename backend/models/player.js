@@ -101,9 +101,13 @@ module.exports = {
 
     getHighscores() {
         players.sort(function(a, b) {
-            return a.points <= b.points;
+            if (a.points <= b.points) {
+                return 1;
+            } else {
+                return -1;
+            }
         });
-        highscoreArray = [];
+        let highscoreArray = [];
         for (i = 0; i < 5; i++) {
             if (i === players.length) {
                 break;
@@ -114,6 +118,8 @@ module.exports = {
             };
             highscoreArray.push(parsedPlayer);
         }
+        console.log(highscoreArray);
+        
         return highscoreArray;
     }
 }

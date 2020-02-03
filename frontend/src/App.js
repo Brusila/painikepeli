@@ -93,13 +93,13 @@ class App extends React.Component {
     } else {
       main = (
         <main className='main'>
+          <Scoreboard highscores = {this.state.highscores}/>
           <div className='playDiv'>
             <WinBanner pointsWon = {this.state.pointsWon} />
             {button}
             <NextWinBanner clicksToWin = {this.state.clicksToWin} points = {this.state.points} />
           </div>
           <PointBalance points = {this.state.points} />
-          <Scoreboard highscores = {this.state.highscores}/>
         </main>
       );
     }

@@ -2,9 +2,6 @@ import React from 'react';
 import './App.css'
 
 class NextWinBanner extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         if (this.props.points === 0) {
             return (null);

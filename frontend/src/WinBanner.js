@@ -2,10 +2,6 @@ import React from 'react';
 import './App.css'
 
 class WinBanner extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (this.props.pointsWon === 0) {
             return(

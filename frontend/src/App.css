@@ -48,7 +48,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 20px 100px 20px 100px;
+    margin: 15px 50px 15px 50px;
     justify-content: center;
     min-width: 500px;
     width: 500px;
@@ -83,7 +83,7 @@
     animation: fadeOut 2.5s forwards;
     font-size: 60px;
     position: relative;
-    color: aliceblue;
+    color: black;
     pointer-events: none;
 }
 
@@ -122,10 +122,10 @@
     display: flex;
     flex-direction: column;
     height: max-content;
-    margin: 20px 100px 20px 100px;
+    margin: 15px 50px 15px 50px;
     border-radius: 2%;
     text-align: center;
-    width: 500px;
+    min-width: 570px;
     background-color: azure;
     box-shadow: 0 15px 15px #333;
 }
@@ -135,15 +135,41 @@
 }
 
 .score {
-    font-size: 300px;
+    font-size: 250px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .main {   
       flex-direction: column;
+    }
+    .playDiv {
+        order: 1;
+    }
+    .scoreDiv {
+        order: 2;
+    }
+    .highscoreDiv {
+        order: 3;
     }
   }
 
 .nextWinBanner {
     font-size: 50px;
+}
+
+.highscoreDiv {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    margin: 15px 50px 15px 50px;
+    border-radius: 2%;
+    text-align: center;
+    min-width: 570px;
+    background-color: azure;
+    box-shadow: 0 15px 15px #333;
+    font-size: 40px;
+}
+
+.highscoreDefinition {
+    font-size: 100px;
 }
