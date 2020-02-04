@@ -14,7 +14,7 @@ class Welcome extends React.Component {
 
     submitEvent(event) {
         if (!this.state.name) {
-            this.setState({errorMessage: 'No empty names!'})
+            this.setState({errorMessage: "Username can't be empty!"})
         } else if (this.state.name.length > 8) {
             this.setState({errorMessage: 'Maximux of 8 characters!'})
         } else {
@@ -25,16 +25,14 @@ class Welcome extends React.Component {
 
     render() {
         return(
-            <div>
-                <span>
-                    {this.state.errorMessage}
-                </span>
-                <form onSubmit={this.submitEvent}>
-                    <label>
-                        Name:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
+            <div className="welcomeDiv">
+                <form className="welcomeForm" onSubmit={this.submitEvent}>
+                    <label>Enter your name</label>
+                        <input className="welcomeField" type="text" value={this.state.value} onChange={this.handleChange} />
+                    <span className="welcomeErrorText">
+                        {this.state.errorMessage}
+                    </span>
+                    <input className="welcomeSubmit" type="submit" value="Let's play!" />
                 </form>
             </div>
         );

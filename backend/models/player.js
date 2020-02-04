@@ -2,6 +2,11 @@ const fs = require('fs');
 let players = []
 let totalClicks = 0;
 
+const data = fs.readFileSync('./models/players.json', 'utf8');
+        if (data) {
+            players = JSON.parse(data);
+        }
+
 function updateSaveFile() {
     let json = JSON.stringify(players);
     fs.writeFile('./models/players.json', json, function(err) {
@@ -11,13 +16,6 @@ function updateSaveFile() {
 setInterval(updateSaveFile, 30000);
 
 module.exports = {
-    setup() {
-        const data = fs.readFileSync('./models/players.json', 'utf8');
-        if (data) {
-            players = JSON.parse(data);
-        }
-    },
-
     generateId() {
         function generate() {
             let S4 = function() {
@@ -39,6 +37,9 @@ module.exports = {
     },
 
     createPlayer(id, name) {
+        if (!name) {
+            name = "Jane Doe"
+        }
         const player  = {
             "id": id,
             "name": name,
@@ -118,8 +119,6 @@ module.exports = {
             };
             highscoreArray.push(parsedPlayer);
         }
-        console.log(highscoreArray);
-        
         return highscoreArray;
     }
 }

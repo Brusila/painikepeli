@@ -41,7 +41,6 @@ module.exports = {
     },
 
     load(req, res) {
-        Player.setup();
         let cookie = req.cookies.id;
         if (cookie === undefined || !Player.playerExists(cookie)) {
             res.end(JSON.stringify({playerFound: 'false'}))

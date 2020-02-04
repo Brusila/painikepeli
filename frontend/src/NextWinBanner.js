@@ -7,8 +7,9 @@ class NextWinBanner extends React.Component {
             return (null);
         } else {
             return (
-                <div>
-                    <h2 className='nextWinBanner'>Clicks to next win: {this.props.clicksToWin}</h2>
+                <div className="nextWinDiv">
+                    <h2 className='nextWinDefinition'>Clicks to next win:</h2>
+                    <h2 className="nextWinPoints">{this.props.clicksToWin}</h2>
                 </div>
             );
         }

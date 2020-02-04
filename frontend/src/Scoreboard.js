@@ -2,7 +2,6 @@ import React from 'react';
 
 class ScoreBoard extends React.Component {
     render() {
-        console.log(this.props.highscores);
         let listitems;
         if (!this.props.highscores) {
             listitems = null;

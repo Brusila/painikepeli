@@ -14,7 +14,7 @@ class StartOverButton extends React.Component {
     render() {
         return (
             <div className="startOverDiv">
-                <button className="startOverButton" onClick={this.clickEvent}>Start over</button>
+                <button className="startOverButton" onClick={this.clickEvent}>START OVER</button>
             </div>
         );
     }

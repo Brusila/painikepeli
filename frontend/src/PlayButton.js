@@ -1,21 +1,26 @@
 import React from 'react';
 import './App.css'
 
-class TheButton extends React.Component {
+class PlayButton extends React.Component {
     constructor(props) {
         super(props);
         this.clickEvent = this.clickEvent.bind(this);
     }
 
-    clickEvent() {
-        this.props.playClicked();
+    clickEvent(event) {
+        console.log(event);
+        
+        if (event.which !== 13 && event.which !== 32) {
+            this.props.playClicked();
+        }
     };
 
     render() {
         return (
-            <button className='playButton' onClick={this.clickEvent}>Play</button>
+            <button className='playButton' onClick={(e) => {
+                this.clickEvent(e)}}>PLAY</button>
         );
     }
 }
 
-export default TheButton
+export default PlayButton

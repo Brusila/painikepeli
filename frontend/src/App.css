@@ -8,17 +8,16 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    background-color: beige;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .header {
-    font-size: 100px;
-    color: aliceblue;
+    font-size: 90px;
+    color: #fff;
     display: flex;
     order: 1;
     width: 100%;
-    min-height: 30vh;
+    height: 30vh;
     background-image: url(http://atkufa.ru/uploads/wallpapers/35218-triple-monitor-wallpapers-hd.jpg);
     background-repeat: no-repeat;
     background-position-y: 92%;
@@ -27,6 +26,7 @@
 }
 
 .main {
+    font-family: "URW++", "Impact";
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,7 +38,7 @@
 
 .footer {
     display: flex;
-    min-height: 5vh;
+    height: 5vh;
     flex-direction: column-reverse;
     background-color: #141315;
     order: 3;
@@ -59,15 +59,16 @@
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    background-color: #4d88ff;
-    box-shadow: 0px 15px#001133;
+    color: #fff;
+    background-color: #f04e30;
+    box-shadow: 0px 15px #c52b0e;
     font-size: 130px;
     text-align: center;
-    margin: 10px;
+    margin: 0px 10px 0px 10px;
 }
 
 .playButton:hover {
-    background-color: royalblue;
+    background-color: #ef3e1e;
 }
 
 .playButton:active{
@@ -105,33 +106,23 @@
     border-radius: 20%;
     cursor: pointer;
     border: none;
-    background-color: crimson;
-    box-shadow: 0px 15px #666;
+    color: #fff;
+    background-color: #f04e30;
+    box-shadow: 0px 15px #c52b0e;
 }
 
 .startOverButton:hover {
-    background-color: firebrick;
+    background-color: #ef3e1e;
 }
 
 .startOverButton:active{
-    box-shadow: 0 5px #333;
-    transform: translateY(4px);
-}
-
-.scoreDiv {
-    display: flex;
-    flex-direction: column;
-    height: max-content;
-    margin: 15px 50px 15px 50px;
-    border-radius: 2%;
-    text-align: center;
-    min-width: 570px;
-    background-color: azure;
-    box-shadow: 0 15px 15px #333;
+    box-shadow: none;
+    transform: translateY(15px);
 }
 
 .scoreDefinition {
     font-size: 150px;
+    color: #ef3e1e;
 }
 
 .score {
@@ -153,11 +144,32 @@
     }
   }
 
-.nextWinBanner {
-    font-size: 50px;
+.nextWinDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.highscoreDiv {
+.nextWinDefinition {
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    color: #ef3e1e;
+    min-width: max-content;
+    margin-right: 5px;
+}
+
+.nextWinPoints {
+    margin-left: 5px;
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    min-width: max-content;
+}
+
+.highscoreDiv, .scoreDiv, .welcomeDiv {
+    color: #141315;
     display: flex;
     flex-direction: column;
     height: max-content;
@@ -165,11 +177,64 @@
     border-radius: 2%;
     text-align: center;
     min-width: 570px;
-    background-color: azure;
-    box-shadow: 0 15px 15px #333;
+    background-color: #fff;
+    box-shadow: 0px 15px 15px #333;
     font-size: 40px;
 }
 
 .highscoreDefinition {
+    color: #ef3e1e;
     font-size: 100px;
+}
+
+.highscoreList {
+    list-style-position: inside;
+    padding: 20px
+}
+
+.welcomeDiv {
+    min-height: 300px;
+    width: max-content;
+    padding: 30px;
+    font-size: 60px;
+}
+
+.welcomeForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ef3e1e;
+}
+
+.welcomeErrorText {
+    font-size: 30px;
+    color: #c52b0e;
+}
+
+.welcomeField {
+    text-align: center;
+    font-size: 50px;
+    color: #141315;
+}
+
+.welcomeSubmit {
+    font-size: 50px;
+    margin: 50px;
+    border-radius: 5%;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background-color: #f04e30;
+    box-shadow: 0px 15px #c52b0e;
+    text-align: center;
+    padding: 10px;
+}
+
+.welcomeSubmit:hover {
+    background-color: #ef3e1e;
+}
+
+.welcomeSubmit:active{
+    box-shadow: none;
+    transform: translateY(15px);
 }
