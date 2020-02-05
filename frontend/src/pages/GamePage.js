@@ -8,7 +8,7 @@ import NextWinBanner from '../components/NextWinBanner';
 import Welcome from '../components/Welcome';
 import Scoreboard from '../components/Scoreboard';
 
-class Page extends React.Component {
+class GamePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,7 @@ class Page extends React.Component {
     this.startOver = this.startOver.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
+    // Find out if the player already exists and load the page accordingly
     fetch('http://localhost:3001/game/load', {
       method: 'GET',
       credentials: 'include',
@@ -35,6 +36,7 @@ class Page extends React.Component {
       }));
   }
 
+  // Make the server to remove 1 point from the player
   play() {
     const { counter } = this.state;
     fetch('http://localhost:3001/game/play', {
@@ -54,6 +56,7 @@ class Page extends React.Component {
       }));
   }
 
+  // Make the server to reset the player's score to 20
   startOver() {
     const { counter } = this.state;
     fetch('http://localhost:3001/game/startOver', {
@@ -72,6 +75,7 @@ class Page extends React.Component {
       }));
   }
 
+  // Make server to create a player with the given name
   handleSubmit(name) {
     this.setState({ playerFound: 'true' });
     fetch('http://localhost:3001/game/start', {
@@ -102,12 +106,14 @@ class Page extends React.Component {
     }
 
     let main;
+    // If the player didn't exist, render the form to enter username
     if (playerFound === 'false') {
       main = (
         <main className="main">
           <Welcome handleSubmit={this.handleSubmit} />
         </main>
       );
+    // If the player did exist, render the content for playing the game
     } else {
       main = (
         <main className="main">
@@ -137,4 +143,4 @@ class Page extends React.Component {
   }
 }
 
-export default Page;
+export default GamePage;
