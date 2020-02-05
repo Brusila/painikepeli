@@ -1,6 +1,7 @@
-const express = require("express");
+const express = require('express');
+
 const router = express.Router();
-const PlayController = require('../controllers/game')
+const PlayController = require('../controllers/game');
 
 router.post('/play', PlayController.play);
 router.post('/startOver', PlayController.startOver);
