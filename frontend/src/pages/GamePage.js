@@ -16,14 +16,14 @@ class GamePage extends React.Component {
       clicksToWin: 0,
       pointsWon: 0,
       playerFound: 'false',
-      highscores: [{}],
+      highscores: [],
     };
     this.play = this.play.bind(this);
     this.startOver = this.startOver.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     // Find out if the player already exists and load the page accordingly
-    fetch('http://localhost:3001/game/load', {
+    fetch('/game/load', {
       method: 'GET',
       credentials: 'include',
     })
@@ -39,7 +39,7 @@ class GamePage extends React.Component {
   // Make the server to remove 1 point from the player
   play() {
     const { counter } = this.state;
-    fetch('http://localhost:3001/game/play', {
+    fetch('/game/play', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ class GamePage extends React.Component {
   // Make the server to reset the player's score to 20
   startOver() {
     const { counter } = this.state;
-    fetch('http://localhost:3001/game/startOver', {
+    fetch('/game/startOver', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ class GamePage extends React.Component {
   // Make server to create a player with the given name
   handleSubmit(name) {
     this.setState({ playerFound: 'true' });
-    fetch('http://localhost:3001/game/start', {
+    fetch('/game/start', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

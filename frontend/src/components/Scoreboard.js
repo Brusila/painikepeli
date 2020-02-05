@@ -3,7 +3,7 @@ import React from 'react';
 function ScoreBoard(props) {
   const { highscores } = props;
   let listitems;
-  if (!highscores) {
+  if (highscores === undefined) {
     listitems = null;
   } else {
     listitems = highscores.map((player) => (

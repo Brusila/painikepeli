@@ -108,3 +108,7 @@ dist
 
 # Build
 build
+
+# Heroku
+.DS_Store
+/*.env
