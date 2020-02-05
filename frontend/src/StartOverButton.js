@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css'
 
 class StartOverButton extends React.Component {
     constructor(props) {
@@ -20,4 +19,4 @@ class StartOverButton extends React.Component {
     }
 }
 
-export default StartOverButton
+export default StartOverButton;

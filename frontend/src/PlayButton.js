@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css'
 
 class PlayButton extends React.Component {
     constructor(props) {
@@ -23,4 +22,4 @@ class PlayButton extends React.Component {
     }
 }
 
-export default PlayButton
+export default PlayButton;

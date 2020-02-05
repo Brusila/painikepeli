@@ -11,4 +11,4 @@ class PointBalance extends React.Component {
     }
 }
 
-export default PointBalance
+export default PointBalance;

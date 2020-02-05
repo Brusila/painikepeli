@@ -112,7 +112,7 @@ class App extends React.Component {
         {main}
         <footer className='footer'>
           <p>© Brutukseni</p>
-          <a href="https://github.com/Brutukseni/painikepeli" title="Visit my profile on GitHub" target="_blank">GitHub</a>
+          <a href="https://github.com/Brutukseni/painikepeli" title="Visit my profile on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
         </footer>
       </div>
     );
