@@ -1,3 +1,4 @@
+/*Default styling and font */
 * {
     padding: 0;
     margin: 0;
@@ -5,10 +6,18 @@
     font-family: "URW++", "Impact";
   }
 
+/*Links */
+a {
+    color: #fff;
+}
+
+/*
+---Page layout---
+*/
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .header {
@@ -17,8 +26,9 @@
     display: flex;
     order: 1;
     width: 100%;
-    height: 30vh;
-    background-image: url(http://atkufa.ru/uploads/wallpapers/35218-triple-monitor-wallpapers-hd.jpg);
+    min-height: 30vh;
+    background-color: gray;
+    background-image: url("/headerbackground.jpg");
     background-repeat: no-repeat;
     background-position-y: 92%;
     background-size: cover;
@@ -38,12 +48,20 @@
 
 .footer {
     display: flex;
+    flex-direction: row;
     height: 5vh;
-    flex-direction: column-reverse;
+    padding: 0 10vh 0 10vh;
+    justify-content: space-between;
+    align-items: center;
     background-color: #141315;
+    color: #fff;
     order: 3;
 }
 
+
+/*
+---Center div with button, won points and next win---
+*/
 .playDiv {
     display: flex;
     flex-direction: column;
@@ -65,39 +83,8 @@
     font-size: 130px;
     text-align: center;
     margin: 0px 10px 0px 10px;
+    outline: none;
 }
-
-.playButton:hover {
-    background-color: #ef3e1e;
-}
-
-.playButton:active{
-    box-shadow: none;
-    transform: translateY(15px);
-}
-
-.winBannerDiv {
-    height: 50px;
-}
-
-.winBanner {
-    animation: fadeOut 2.5s forwards;
-    font-size: 60px;
-    position: relative;
-    color: black;
-    pointer-events: none;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1; 
-        bottom: -150px;
-    }
-    100% {
-        opacity: 0;
-        bottom: 40px;
-    }
-  }
 
 .startOverButton {
     font-size: 130px;
@@ -109,40 +96,19 @@
     color: #fff;
     background-color: #f04e30;
     box-shadow: 0px 15px #c52b0e;
+    outline: none;
 }
 
-.startOverButton:hover {
-    background-color: #ef3e1e;
+.winBannerDiv {
+    height: 50px;
 }
 
-.startOverButton:active{
-    box-shadow: none;
-    transform: translateY(15px);
+.winBanner {
+    animation: fadeOut 2.5s forwards;
+    font-size: 60px;
+    position: relative;
+    pointer-events: none;
 }
-
-.scoreDefinition {
-    font-size: 150px;
-    color: #ef3e1e;
-}
-
-.score {
-    font-size: 250px;
-}
-
-@media screen and (max-width: 1200px) {
-    .main {   
-      flex-direction: column;
-    }
-    .playDiv {
-        order: 1;
-    }
-    .scoreDiv {
-        order: 2;
-    }
-    .highscoreDiv {
-        order: 3;
-    }
-  }
 
 .nextWinDiv {
     display: flex;
@@ -168,6 +134,31 @@
     min-width: max-content;
 }
 
+/*Hover effects for all of the buttons*/
+.playButton:hover, .startOverButton:hover, .welcomeSubmit:hover {
+    background-color: #ef3e1e;
+}
+
+/*Click effects for all of the buttons*/
+.playButton:active, .startOverButton:active, .welcomeSubmit:active {
+    box-shadow: none;
+    transform: translateY(15px);
+}
+
+/*Levitating effect for the win announcement */
+@keyframes fadeOut {
+    0% {
+        opacity: 1; 
+        bottom: -150px;
+    }
+    100% {
+        opacity: 0;
+        bottom: 40px;
+    }
+  }
+
+
+/*Card style styling for rest of the divs inside main */
 .highscoreDiv, .scoreDiv, .welcomeDiv {
     color: #141315;
     display: flex;
@@ -182,6 +173,23 @@
     font-size: 40px;
 }
 
+
+/*
+---Right side div with player's current score---
+*/
+.scoreDefinition {
+    font-size: 150px;
+    color: #ef3e1e;
+}
+
+.score {
+    font-size: 250px;
+}
+
+
+/*
+---Left side div with the scoreboard---
+*/
 .highscoreDefinition {
     color: #ef3e1e;
     font-size: 100px;
@@ -192,6 +200,10 @@
     padding: 20px
 }
 
+
+/*
+---Div with the username submitting form---
+*/
 .welcomeDiv {
     min-height: 300px;
     width: max-content;
@@ -230,11 +242,19 @@
     padding: 10px;
 }
 
-.welcomeSubmit:hover {
-    background-color: #ef3e1e;
-}
 
-.welcomeSubmit:active{
-    box-shadow: none;
-    transform: translateY(15px);
+/*Adjusting divs inside main for smaller views */
+@media screen and (max-width: 1200px) {
+    .main {   
+      flex-direction: column;
+    }
+    .playDiv {
+        order: 1;
+    }
+    .scoreDiv {
+        order: 2;
+    }
+    .highscoreDiv {
+        order: 3;
+    }
 }
