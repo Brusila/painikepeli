@@ -52,9 +52,12 @@ module.exports = {
 
   // Remove one point from the player
   editPoints(id) {
+    const player = players.find((playerToFind) => playerToFind.id === id);
+    if (player.points === 0) {
+      return [0, 0]
+    }
     totalClicks += 1;
     let pointsWon = 0;
-    const player = players.find((playerToFind) => playerToFind.id === id);
     player.points -= 1;
     if (totalClicks % 500 === 0) {
       player.points += 250;
