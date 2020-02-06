@@ -9,12 +9,11 @@
 - Download and install [Node.js](https://nodejs.org/en/download/)
 - Open the folder where you want the game with terminal and use the command `git clone git@github.com:Brutukseni/painikepeli.git` to clone the project
 - Navigate to the folder **.../painikepeli/backend** with terminal and then use the command `npm install` to install backend's dependencies
-- Navigate to the folder **.../painikepeli/frontend** with terminal and then use the command `npm install` to install frontend's dependencies
+- Navigate to the folder **.../painikepeli/frontend** with terminal and then use the command `npm install` to install frontend's dependencies and then use the command `npm run build` to build the frontend
 
 ## Running
-- Navigate to the folder **.../painikepeli/backend** with terminal and then use the command `node index.js` to start the backend
-- Navigate to the folder **.../painikepeli/backend** with terminal and then use the command `npm start` to start the frontend
-- Wait until the game opens in your default browser or open it manually by going to the url http://localhost:3000/
+- Navigate to the folder **.../painikepeli/backend** with terminal and then use the command `node index.js` or `npm start` to start the server
+- Wait until the game opens in your default browser or open it manually by going to the url http://localhost:5000/
 
 ## Features
 - **Username**
