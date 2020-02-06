@@ -4,10 +4,15 @@
 - This is an **preliminary assignment / exercise project** for Vincit (the assignment can be found [here](https://koodarijahti.fi/Ennakkotehtava_2020_Painikepeli.pdf))
 - The project is a multiplayer browser game on a single page website
 - The general idea of the game is to smash a button for points
+- The game is live at https://painikebli.herokuapp.com/
+  - **Note:** Heroku sets the server to sleep after 30 minutes of inactivity
+    - Every time this happens the player.json is reseted so the players' scores reset aswell
+    - Loading of the page can take for a while if the server was asleep
 
 ## Setting up
+- Download and install [Git](https://git-scm.com/downloads)
 - Download and install [Node.js](https://nodejs.org/en/download/)
-- Open the folder where you want the game with terminal and use the command `git clone git@github.com:Brutukseni/painikepeli.git` to clone the project
+- Open the folder where you want the game with terminal and use the command `git clone https://github.com/Brutukseni/painikepeli.git` to clone the project
 - Navigate to the folder **.../painikepeli/backend** with terminal and then use the command `npm install` to install backend's dependencies
 - Navigate to the folder **.../painikepeli/frontend** with terminal and then use the command `npm install` to install frontend's dependencies and then use the command `npm run build` to build the frontend
 
