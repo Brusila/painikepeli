@@ -42,3 +42,4 @@
   - I decided to not use Redux and rather focus on learning the basics of React
   - The file structure / dividing of components could most likely be better
 - The players' points, name and id are saved to a JSON file, which is kind of a quick and dirty way of saving things compared to other databases
+- The view has some scaling issues if the screen is other than 1980x1080 or if the Windows "zoom option" is on
